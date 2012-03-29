@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title> TwitSearch Test </title>
+        <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+        <script>
+            //var position = document.getElementById('test').innerHTML;
+            //position = "";
+            var combo = "";
+            function postTest(){
+                hashy = document.getElementById('hashtag').value;
+                amount = document.getElementById('number').value;
+                if(hashy == "" || hashy == null){
+                    alert("Please enter a hashtag!");
+                    document.getElementById('hashtag').focus();
+                    return;
+                }
+                urlString = "hashtag="+hashy;
+                if (amount == "" || amount == null){
+                    alert(urlString);
+                    //urlString += "&number="+amount;
+                }else{
+                    urlString = urlString +"&number="+amount;
+                    alert(urlString);
+                }
+                jQuery.post("searchtwit.php", urlString, function(data){
+                    var sentiments = data.split('<br>');
+                    for (num in sentiments) drawBird(sentiments[num]);
+                    //alert("Data loaded:" + sentiments[1]);
+                });
+            }
+            function drawBird(details){
+                combo = combo +details+'<br>';
+                document.getElementById('test').innerHTML = combo;
+                //position = details;
+            }
+            
+            function toStringNum(num){
+                number = parseInt(num);
+                output = "directory"+number;
+                alert(output);
+            }
+            
+            var testpopup1 = new PopupWindow("testdiv1");
+            testpopup1.offsetY = 25;
+            testpopup1.autoHide();
+            
+            function popup1(anchorname) {
+                testpopup1.populate('voila');
+	            testpopup1.showPopup(anchorname);
+	        }
+        </script>
+    </head>
+    <body>
+        <form action="searchtwit.php" method="get">
+            Hashtag : <input type="text" name="hashtag" id="hashtag" /><br/>
+            Number of Tweets : <input type="text" name="number" id="number"/><br/>
+            <input type="submit" value="submit"/>
+        </form>
+        <br>
+        <a href="#" onClick="popup1('anchor');return false;" name="anchor" id="anchor">Click Here To Show DIV</a>
+        <br>
+        <input type="button" value="JQTest" onClick="postTest()"/>
+        <input type="button" value="numTest" onClick="toStringNum(getElementById('number').value)"/>
+        <br><br><br>
+        <div id="test"></div>
+    </body>
+</html>

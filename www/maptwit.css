@@ -1,0 +1,83 @@
+body{
+
+    overflow: hidden;
+}
+
+#twitmap{
+
+	position:relative;
+	background-image: url(http://creativspace.creativitlab.com/farouk/glasto.png);
+    /*background-image: url(gifspeed.php?w=0&s=2);*/
+	background-repeat: no-repeat;
+	cursor: move;
+    z-index: 1;
+}
+
+#accelmap{
+
+    position:relative;
+	background-image: url(http://creativspace.creativitlab.com/farouk/NHSTeamTag/glasto.png);
+    /*background-image: url(gifspeed.php?w=0&s=2);*/
+	background-repeat: no-repeat;
+	cursor: move;
+    z-index: 1;
+}
+
+.mapripple{
+    position: absolute;
+    z-index: 2;
+}
+#loadtest{
+    background-image: url(gifspeed.php?w=framesb&s=4), url(assets/tests/g2.png), url(http://creativspace.creativitlab.com/farouk/glasto.png);
+    background-repeat: no-repeat;
+    height : 2000;
+    width : 3000;
+}
+#loading{
+    background-image: url(assets/loading.gif);
+    border : 2px solid black;
+    /*border-width : 2px;
+    border-color : black;*/
+    background-color: transparent;
+    display : visible;
+    position : absolute;
+    top: 40%;
+    left: 40%;
+    z-index : 4;
+    }
+#controlPanel{
+    
+    background-color:transparent;
+    position:absolute;
+    z-index: 4;
+}
+
+.birdie{
+	
+	position: absolute;
+	width: 100px;
+	height: 100px;
+    z-index: 3;
+}
+
+.ripple{
+    
+	position: absolute;
+	width: 100px;
+	height: 100px;
+    z-index: 2;
+}
+
+div#qTip {
+ padding: 3px;
+ border: 1px solid #666;
+ border-right-width: 2px;
+ border-bottom-width: 2px;
+ display: none;
+ background: #999;
+ color: #FFF;
+ font: bold 9px Verdana, Arial, sans-serif;
+ text-align: left;
+ position: absolute;
+ z-index: 1000;
+}

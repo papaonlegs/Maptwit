@@ -1,0 +1,47 @@
+<html>
+<head>
+<LINK rel=StyleSheet href="maptwit.css" type="text/css" media=screen>
+<script type="text/javascript">
+function createNewWindow (obj) {
+  //var userName = document.getElementById('user_name').value
+  alert(obj);
+  text = obj.getAttribute('texts');
+  var newPage = "<html><head><title>"
+  //newPage += userName;
+  newPage += "</title></head><body>";
+  newPage += "<p>Hello " + text;
+  newPage += "</p></body></html>";
+  var j = window.open('')
+  j.document.write(newPage);
+  j.document.close();
+}
+function modulus(num){
+    var theMod = num%7;
+    while(theMod != 0){
+        num++;
+        theMod = num%7;
+        alert(theMod);
+        if(theMod == 0) return alert("success"+num/7);
+    }
+    alert(num/7);
+}
+</script>
+</head>
+<body>
+<form action="">
+<p>
+User name: <input type="text" id="user_name">
+<input type="submit"
+  value="Create new page"
+  onclick="createNewWindow(this);return false;" texts="<font color='blue'>my</font><br>name<br>is<br>heyya"
+  >
+ 
+</p>
+<input type="button"
+  value="moduli"
+  onclick="modulus(document.getElementById('user_name').value);" texts="<font color='blue'>my</font><br>name<br>is<br>heyya"
+  >
+</form>
+</div>
+</body>
+</html>
